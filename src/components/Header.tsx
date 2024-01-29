@@ -1,7 +1,7 @@
 import { Button, Link, Typography } from "@mui/material";
 import AppBar from "@mui/material/AppBar";
-
 import Toolbar from "@mui/material/Toolbar";
+import ShoppingCartTwoToneIcon from "@mui/icons-material/ShoppingCartTwoTone";
 
 export default function Header() {
   return (
@@ -41,6 +41,11 @@ export default function Header() {
             Support
           </Link>
         </nav>
+        <ShoppingCartTwoToneIcon />
+        (0)
+        <Typography variant="subtitle2" color="primary" sx={{ mx: 2 }}>
+          Total $0
+        </Typography>
         <Button href="#" variant="outlined" sx={{ my: 1, mx: 1.5 }}>
           Login
         </Button>

@@ -12,7 +12,8 @@ import Link from "@mui/material/Link";
 import GlobalStyles from "@mui/material/GlobalStyles";
 import Container from "@mui/material/Container";
 import Header from "./Header";
-import { useState } from "react";
+import { useRecoilState } from "recoil";
+import { cartState } from "../stores/cartStore";
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 function Copyright(props: any) {
@@ -106,9 +107,9 @@ const footers = [
 const defaultTheme = createTheme();
 
 export default function Pricing() {
-  const [cart, setCart] = useState(0);
+  const [cart, setCart] = useRecoilState(cartState);
 
-  function addItem() {
+  function buttonHandler() {
     setCart((prevCart) => prevCart + 1);
   }
 
@@ -219,6 +220,7 @@ export default function Pricing() {
                 </CardContent>
                 <CardActions>
                   <Button
+                    onClick={buttonHandler}
                     fullWidth
                     variant={tier.buttonVariant as "outlined" | "contained"}
                   >
