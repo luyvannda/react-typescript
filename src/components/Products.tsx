@@ -9,9 +9,7 @@ export default function Products() {
   useEffect(() => {
     async function fetchProductsData() {
       try {
-        const response = await fetchProducts();
-
-        const data = response.data;
+        const data = await fetchProducts();
         setProducts(data);
         console.log(data);
       } catch (error) {
@@ -20,15 +18,21 @@ export default function Products() {
     }
 
     fetchProductsData();
-  }, []);
+  }, [setProducts]);
 
   return (
     <div>
       {products.map((product) => (
         <div key={product.id}>
-          <h2>{product.title}</h2>
-          <p>{product.description}</p>
-          <p>Price: ${product.price}</p>
+          <div>
+            <img src={product.image} alt="product image" />
+          </div>
+
+          <div>
+            <h2>{product.title}</h2>
+            <p>{product.description}</p>
+            <p>Price: ${product.price}</p>
+          </div>
         </div>
       ))}
     </div>

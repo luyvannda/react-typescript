@@ -1,10 +1,9 @@
 import axios from "axios";
+import { Product } from "../types/productTypes";
 
-export async function fetchProducts() {
-  try {
-    const response = await axios.get("https://fakestoreapi.com/products");
-    console.log(response.data);
-  } catch (error) {
-    console.error(error);
-  }
+export async function fetchProducts(): Promise<Product[]> {
+  const response = await axios.get<Product[]>(
+    "https://fakestoreapi.com/products"
+  );
+  return response.data;
 }
